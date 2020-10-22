@@ -37,18 +37,8 @@ namespace Financial.WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<ContaPF> GetAll()
+        public IEnumerable<ContaPF> Get()
         {
-            //var rng = new Random();
-            //return Enumerable.Range(1, 1).Select(index => new ContaPF //Arrow Function
-            //{
-            //    Agencia = rng.Next(1111, 9999),
-            //    Conta = rng.Next(111111, 999999),
-            //    TipoConta = TipoConta[rng.Next(TipoConta.Length)],
-            //    NomeCompleto = Nome[rng.Next(Nome.Length)],
-            //})
-            //.ToList();
-
             return GerarLista();
         }
 
@@ -59,23 +49,54 @@ namespace Financial.WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public ContaPF GetById(int id)
+        public ContaPF Get(int id)
         {
             return GerarLista()
-                .FirstOrDefault(conta => conta.Id == id);
+                .FirstOrDefault(conta => conta.Id == id); //<- Expressão Lambda
         }
 
-        // POST api/<ContaPFController>
+        /// <summary>
+        /// Método que irá incrementar um registro na lista de contas
+        /// </summary>
+        /// <param name="contaPF"></param>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] ContaPF contaPF)
         {
+            var listaContas = GerarLista();
+            var conta = new ContaPF()
+            {
+                Id = 6, //Automatizar ente número pra buscar o ultimo id da lista, e incrementar +1
+                TipoConta = contaPF.TipoConta,
+                Agencia = contaPF.Agencia,
+                Conta = contaPF.Conta,
+                NomeCompleto = contaPF.NomeCompleto
+            };
+
+            listaContas.Add(conta);
+
+            try
+            {
+                if (listaContas.Count > 5)
+                    return Ok(listaContas);
+                else
+                    throw new Exception();
+            }
+            catch (Exception)
+            {
+                return BadRequest(conta);
+            }
         }
 
-        // PUT api/<ContaPFController>/5
+        /// <summary>
+        /// Método que atualiza todo o registro desejado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="contaPF"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public ContaPF Put(int id, [FromBody] ContaPF contaPF)
         {
-            var conta = GetById(id);
+            var conta = Get(id);
 
             conta.Agencia = contaPF.Agencia;
             conta.Conta = contaPF.Conta;
@@ -89,13 +110,12 @@ namespace Financial.WebAPI.Controllers
         /// Método que remove um item da lista, filtrado pelo id.
         /// </summary>
         /// <param name="idParam"></param>
-        /// <returns></returns>
-        /// <response code="404">Se a Conta não foi encontrada</response>
+        /// <returns></returns>        
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpDelete("{idParam}")]
         public IActionResult Delete(int idParam)
-        {            
+        {
             try
             {
                 //gerar lista
@@ -117,7 +137,7 @@ namespace Financial.WebAPI.Controllers
                 return NotFound();
             }
         }
-
+        
         #region Métodos Privados
         private List<ContaPF> GerarLista()
         {
@@ -158,5 +178,14 @@ namespace Financial.WebAPI.Controllers
         }
 
         #endregion Métodos Privados
+
+        // 1. Web Method para retornar a quantidade de items da minha lista
+
+        // 2. Web Method para retornar o ultimo item (conta) da minha lista de contas
+
+        // 3. Web Method Patch, para atualizar Nome Completo
+
+        // 4. Método privado pra validar todas as propriedades estão sendo todas inseridas, menos o Id
+
     }
 }
