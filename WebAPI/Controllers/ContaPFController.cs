@@ -187,5 +187,6 @@ namespace Financial.WebAPI.Controllers
 
         // 4. Método privado pra validar todas as propriedades estão sendo todas inseridas, menos o Id
 
+        // 5. Web Method retornando a lista, ordenada por ordem alfabética, com relação ao nome (logo o Id poderá não ficar ordenado)
     }
 }

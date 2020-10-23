@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Services
+namespace Financial.Services
 {
     public class Class1
     {

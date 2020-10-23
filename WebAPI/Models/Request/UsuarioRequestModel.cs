@@ -7,5 +7,6 @@ namespace Financial.WebAPI.Models.Request
 {
     public class UsuarioRequestModel
     {
+        public int Id { get; set; }
     }
 }

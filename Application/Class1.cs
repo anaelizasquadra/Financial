@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Application
+namespace Financial.Application
 {
     public class Class1
     {
