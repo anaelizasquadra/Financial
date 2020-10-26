@@ -205,7 +205,7 @@ namespace Financial.WebAPI.Controllers
 
         // 5. Web Method retornando a lista, ordenada por ordem alfabética, com relação ao nome (logo o Id poderá não ficar ordenado)
         [HttpGet]
-        [Route("orderbyid")]
+        [Route("order-by-name")]
         public IOrderedEnumerable<ContaPF> GetOrderByName()
         {
             return GerarLista().OrderBy(conta => conta.NomeCompleto);
