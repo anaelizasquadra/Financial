@@ -179,14 +179,36 @@ namespace Financial.WebAPI.Controllers
 
         #endregion Métodos Privados
 
-        // 1. Web Method para retornar a quantidade de items da minha lista
+        // 1. Web Method (endpoint) para retornar a quantidade de items da minha lista
+        /// <summary>
+        /// Método ou endpoint que tem por finalidade retornar o totalizador de contas
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("count")]
+        public int GetQuantidade()
+        {
+            return GerarLista().Count();
+        }
 
         // 2. Web Method para retornar o ultimo item (conta) da minha lista de contas
+        [HttpGet]
+        [Route("last")]
+        public ContaPF GetUltimo()
+        {
+            return GerarLista().LastOrDefault();
+        }
 
         // 3. Web Method Patch, para atualizar Nome Completo
 
         // 4. Método privado pra validar todas as propriedades estão sendo todas inseridas, menos o Id
 
         // 5. Web Method retornando a lista, ordenada por ordem alfabética, com relação ao nome (logo o Id poderá não ficar ordenado)
+        [HttpGet]
+        [Route("orderbyid")]
+        public IOrderedEnumerable<ContaPF> GetOrderByName()
+        {
+            return GerarLista().OrderBy(conta => conta.NomeCompleto);
+        }
     }
 }
