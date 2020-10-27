@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.Models", "Models\Financial.Models.csproj", "{47E8F556-D638-4DFA-A970-3883097C7240}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.WebAPI", "WebAPI\Financial.WebAPI.csproj", "{B20376C5-2331-4DFB-81D5-ACCA6897F892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financial.Application", "Application\Financial.Application.csproj", "{93F3BD34-6250-4F3C-B1F0-6CF38F56925E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.Application", "Application\Financial.Application.csproj", "{93F3BD34-6250-4F3C-B1F0-6CF38F56925E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financial.Services", "Services\Financial.Services.csproj", "{9A6BD270-2A65-48BC-962D-A782DF03DFF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Financial.Services", "Services\Financial.Services.csproj", "{9A6BD270-2A65-48BC-962D-A782DF03DFF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47E8F556-D638-4DFA-A970-3883097C7240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47E8F556-D638-4DFA-A970-3883097C7240}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47E8F556-D638-4DFA-A970-3883097C7240}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47E8F556-D638-4DFA-A970-3883097C7240}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B20376C5-2331-4DFB-81D5-ACCA6897F892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B20376C5-2331-4DFB-81D5-ACCA6897F892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20376C5-2331-4DFB-81D5-ACCA6897F892}.Release|Any CPU.ActiveCfg = Release|Any CPU
