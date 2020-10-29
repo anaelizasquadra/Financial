@@ -29,7 +29,7 @@ namespace Financial.WebAPI
             services.AddControllers();
 
             //TODO: Resolver problema de Injeção de Dependência, e registro do Mediator
-            //services.UseServicesHandlers(Configuration);
+            //services.UseFinancialDbContext(Configuration).UseServicesHandlers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -81,8 +81,9 @@ namespace Financial.WebAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Financial");
-            //c.RoutePrefix = string.Empty;
-        });
+            });
+
+            app.UseMvc();
 
             app.UseRouting();
 
