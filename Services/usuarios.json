@@ -1,0 +1,24 @@
+[
+  {
+    "id":1,
+    "nomeCompleto":"Geraldo José",
+    "cpf":"12345678901",
+    "telefoneFixo":null,
+    "telefoneCeular":null
+  }
+  ,
+  {
+    "id":2,
+    "nomeCompleto":"Fátima Bernardes",
+    "cpf":"12345678902",
+    "telefoneFixo":null,
+    "telefoneCeular":null
+  }
+  ,
+  {
+    "id":3,
+    "nomeCompleto":"Maria Júlia Coutinho",
+    "cpf":"12345678903",
+    "telefoneFixo":null,
+    "telefoneCeular":null
+  }]

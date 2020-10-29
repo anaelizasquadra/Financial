@@ -25,8 +25,8 @@ namespace Financial.WebAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<UsuarioVO> Get(int id)
         {
-            var dadosUsuario = mediator.Send(new GetDadosUsuario(id));
-            return Ok();
+            
+            return Ok(mediator.Send(new GetDadosUsuario(id)));
         }
     }
 }
